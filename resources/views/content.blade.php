@@ -1,7 +1,42 @@
 @extends('template')
 
 @section('content')
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">TUNKIN</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item px-2 active">
+          <a class="nav-link" href="{{ asset('template/index')}}">Dashboard<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item px-2">
+          <a class="nav-link" href="{{ asset('template/posts')}}">Posts</a>
+        </li>
+        <li class="nav-item px-2">
+          <a class="nav-link" href="{{ asset('template/categories')}}">Categories</a>
+        </li>
+        <li class="nav-item px-2">
+          <a class="nav-link" href="{{ asset('template/users')}}">Users</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle"></i> Welcome User
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ asset('template/profile')}}"><i class="fa fa-user-circle"></i> Profil</a>
+            <a class="dropdown-item" href="{{ asset('template/settings')}}"><i class="fa fa-gear"></i> Pengaturan</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="{{ asset('template/login')}}" class="nav-link"><i class="fa fa-user-times"></i> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
   <!-- Header -->
   <header id="main-header" class="bg-primary text-white">
     <div class="container">
@@ -51,6 +86,7 @@
                   <th>Title</th>
                   <th>Category</th>
                   <th>Date Posted</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -59,32 +95,83 @@
                   <td>Post One</td>
                   <td>Satuan Kerja</td>
                   <td>01 Desember 2018</td>
-                  <td><a href="details.html" class="btn btn-secondary"><i class="fa fa-angle-double-right"></i>Details</a></td>
+                  <td><a href="{{ asset('template/details')}}" class="btn btn-info"><i class="fa fa-angle-double-right"></i>Details</a></td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <br>
+          <div class="card">
+            <div class="card-header">
+              <h4>Latest Categories</h4>
+            </div>
+            <table class="table table-striped">
+              <thead class="thead-inverse">
+                <tr>
+                  <th>No</th>
+                  <th>Title</th>
+                  <th>Date Posted</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Satuan Kerja</td>
+                  <td>01 Desember 2018</td>
+                  <td><a href="{{ asset('template/details')}}" class="btn btn-info"><i class="fa fa-angle-double-right"></i>Details</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br>
+          <div class="card">
+            <div class="card-header">
+              <h4>Latest Users</h4>
+            </div>
+            <table class="table table-striped">
+              <thead class="thead-inverse">
+                <tr>
+                  <th>No</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Date Registered</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Angga</td>
+                  <td>sunghangga@gmail.com</td>
+                  <td>01 Desember 2018</td>
+                  <td><a href="{{ asset('template/details')}}" class="btn btn-info"><i class="fa fa-angle-double-right"></i>Details</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
         </div>
         <div class="col-md-3">
           <div class="card bg-primary mb-3 text-center text-white">
             <div class="card-body">
               <h3>Posts</h3>
               <h1 class="display-4"><i class="fa fa-pencil"></i>6</h1>
-              <a href="posts.html" class="btn btn-sm btn-outline-light">View</a>
+              <a href="{{ asset('template/posts')}}" class="btn btn-sm btn-outline-light">View</a>
             </div>
           </div>
           <div class="card bg-success mb-3 text-center text-white">
             <div class="card-body">
               <h3>Categories</h3>
               <h1 class="display-4"><i class="fa fa-pencil"></i>4</h1>
-              <a href="categories.html" class="btn btn-sm btn-outline-light">View</a>
+              <a href="{{ asset('template/categories')}}" class="btn btn-sm btn-outline-light">View</a>
             </div>
           </div>
           <div class="card bg-warning mb-3 text-center text-white">
             <div class="card-body">
               <h3>Users</h3>
               <h1 class="display-4"><i class="fa fa-pencil"></i>2</h1>
-              <a href="users.html" class="btn btn-sm btn-outline-light">View</a>
+              <a href="{{ asset('template/users')}}" class="btn btn-sm btn-outline-light">View</a>
             </div>
           </div>
         </div>
@@ -98,7 +185,7 @@
       <div class="modal-content">
         <div class="modal-header modal-title bg-primary text-white">
           <h5 class="modal-title">Add Post</h5>
-          <button class="close"><span>&times;</span></button>
+          <button class="close" data-dismiss="modal"><span>&times;</span></button>
         </div>
         <div class="modal-body">
           <form>
@@ -139,7 +226,7 @@
       <div class="modal-content">
         <div class="modal-header modal-title bg-success text-white">
           <h5 class="modal-title">Add Category</h5>
-          <button class="close"><span>&times;</span></button>
+          <button class="close" data-dismiss="modal"><span>&times;</span></button>
         </div>
         <div class="modal-body">
           <form>
@@ -163,7 +250,7 @@
       <div class="modal-content">
         <div class="modal-header modal-title bg-warning text-white">
           <h5 class="modal-title">Add User</h5>
-          <button class="close"><span>&times;</span></button>
+          <button class="close" data-dismiss="modal"><span>&times;</span></button>
         </div>
         <div class="modal-body">
           <form>
