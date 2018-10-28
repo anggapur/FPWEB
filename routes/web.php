@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
 });
 
 Auth::routes();
@@ -21,3 +21,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('template/index','templateCtrl@index');
 Route::get('template/login','templateCtrl@login');
+
+Route::group(['middleware' => 'auth'],function(){
+	//middleware for login
+	Route::resource('profile','profilController');
+	Route::resource('personil','personilController');
+
+	Route::group(['middleware' => 'level:admin'],function(){
+		Route::resource('satker','satkerController');
+		Route::resource('user','userController');
+	});
+});
