@@ -2,16 +2,7 @@
 
 @section('content')
 
-  <!-- Header -->
-  <header id="main-header" class="bg-primary text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1><i class="fa fa-gear"></i> Dashboard</h1>
-        </div>
-      </div>
-    </div> 
-  </header>
+  
 <!-- Section -->
   <section id="sections" class="py-4 mb-4 bg-faded">
     <div class="container">
@@ -61,7 +52,7 @@
         <div class="col-md-9">
           <div class="card">
             <div class="card-header">
-              <h4>{{$page}}  / {{$subpage}}</h4>
+           {{$page}}  / {{$subpage}}
             </div>
             <table  id="tableNice1" class="table table-striped table-bordered">
               <thead class="thead-inverse">
@@ -80,7 +71,14 @@
                   <td>{{$val->name}}</td>
                   <td>{{$val->email}}</td>
                   <td>{{$val->kd_satker." - ".$val->nm_satker}}</td>
-                  <td><a href="details.html" class="btn btn-secondary"><i class="fa fa-angle-double-right"></i>Details</a></td>
+                  <td><a href="details.html" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Edit</a>
+                    <a href="{{url('user/'.$val->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-file-o"></i> Details</a>
+                     <form action="{{url('user/'.$val->id)}}" method="POST">
+                          {{csrf_field()}}
+                          <input type="hidden" name="_method" value="DELETE">
+                          <button type="submit" class=" btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
               </tbody>

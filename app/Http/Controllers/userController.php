@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\user;
 use App\satker;
+use Auth;
 class userController extends Controller
 {
     /**
@@ -72,6 +73,13 @@ class userController extends Controller
     public function show($id)
     {
         //
+        $data['page'] = $this->page;
+        $data['subpage'] = "Buat User";    
+        $data['dataUser'] = User::where('level','<>','admin')
+                            ->leftJoin('satker','users.kd_satker','=','satker.id')
+                            ->select('users.*','satker.kd_satker','satker.nm_satker')
+                            ->first();
+        return view($this->mainPage.".show",$data);
     }
 
     /**
@@ -106,5 +114,17 @@ class userController extends Controller
     public function destroy($id)
     {
         //
+        if(Auth::user()->level == "admin")
+        {
+            $delete = User::where('id',$id)->delete();
+            if($delete)
+            {
+                return redirect()->back()->with(['status' => 'success','message' => 'Berhasil Hapus User']);
+            }
+        }
+        else
+        {
+            return redirect()->back()->with(['status' => 'danger','message' => 'Anda tidak bisa menghapus user ini']);
+        }
     }
 }
