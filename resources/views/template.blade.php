@@ -165,6 +165,7 @@
     </div>
   </nav>
 
+
   <!-- Header -->
   <header id="main-header" class="bg-primary text-white">
     <div class="container">
@@ -175,6 +176,7 @@
       </div>
     </div> 
   </header>
+
 
   <main>
     @yield('content')

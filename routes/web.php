@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('template/index','templateCtrl@index');
 Route::get('template/login','templateCtrl@login');
 
+
 Route::group(['middleware' => 'auth'],function(){
 	//middleware for login
 	Route::resource('profile','profilController');
@@ -32,3 +33,4 @@ Route::group(['middleware' => 'auth'],function(){
 		Route::resource('user','userController');
 	});
 });
+

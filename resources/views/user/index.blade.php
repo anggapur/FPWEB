@@ -1,6 +1,17 @@
 @extends('template')
 
 @section('content')
+
+  <!-- Header -->
+  <header id="main-header" class="bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1><i class="fa fa-gear"></i> Dashboard</h1>
+        </div>
+      </div>
+    </div> 
+  </header>
 <!-- Section -->
   <section id="sections" class="py-4 mb-4 bg-faded">
     <div class="container">
