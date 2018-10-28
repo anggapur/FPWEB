@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('template/index','templateCtrl@index');
 Route::get('template/login','templateCtrl@login');
+

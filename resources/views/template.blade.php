@@ -52,17 +52,6 @@
     </div>
   </nav>
 
-  <!-- Header -->
-  <header id="main-header" class="bg-primary text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1><i class="fa fa-gear"></i> Dashboard</h1>
-        </div>
-      </div>
-    </div> 
-  </header>
-
   <main>
     @yield('content')
   </main>
