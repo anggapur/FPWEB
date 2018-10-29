@@ -74,7 +74,7 @@
           <a class="nav-link" href="users.html">Mutasi</a>
         </li>
           <li class="nav-item px-2">
-          <a class="nav-link" href="users.html">Backup Restore</a>
+          <a class="nav-link" href="fs.html">Backup Restore</a>
         </li>
         @elseif(Auth::user()->level == "operator")
          <!-- Data Master -->
@@ -148,16 +148,13 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{url('profile')}}"><i class="fa fa-user-circle"></i> Profil</a>
-            <a class="dropdown-item" href="settings.html"><i class="fa fa-gear"></i> Pengaturan</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a href="{{ route('logout') }}"
+            <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();" class="nav-link"><i class="fa fa-user-times"></i> Logout</a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                     document.getElementById('logout-form').submit();" class="dropdown-item"><i class="fa fa-user-times"></i> Logout</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+          </div>
         </li>
       </ul>
     </div>
@@ -167,7 +164,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h1><i class="fa fa-gear"></i>{{$page}}</h1>
+          <h3><i class="fa fa-gear"></i>{{$page}}</h3>
         </div>
       </div>
     </div> 
@@ -175,6 +172,9 @@
   <main>
     @yield('content')
   </main>
+
+  <footer class="bottom-space"></footer>
+
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
