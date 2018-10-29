@@ -12,9 +12,53 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{{ asset('public/css/style.css')}}" >
   <link rel="stylesheet" href="{{ asset('public/css/font-awesome.min.css')}}">
-  <!-- <link rel="stylesheet" href="css/bootstrap-style.css"> -->
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">TUNKIN</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item px-2 active">
+          <a class="nav-link" href="{{ asset('template/index')}}">Dashboard<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item px-2">
+          <a class="nav-link" href="{{ asset('template/posts')}}">Posts</a>
+        </li>
+        <li class="nav-item px-2">
+          <a class="nav-link" href="{{ asset('template/categories')}}">Categories</a>
+        </li>
+        <li class="nav-item px-2">
+          <a class="nav-link" href="{{ asset('template/users')}}">Users</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle"></i> Welcome User
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ asset('template/profile')}}"><i class="fa fa-user-circle"></i> Profil</a>
+            <a href="{{ asset('template/login')}}" class="nav-link"><i class="fa fa-user-times"></i> Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header id="main-header" class="bg-primary text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3><i class="fa fa-gear"></i> Dashboard</h3>
+        </div>
+      </div>
+    </div> 
+  </header>
+
   <main>
     @yield('content')
   </main>
@@ -26,8 +70,5 @@
   <script>
     CKEDITOR.replace('editor1');
   </script>
-  <!-- <script src="js/jquery.min.js"></script>
-  <script src="js/tether.min.js"></script>
-  <script src="js/bootstrap-js.min.js"></script> -->
 </body>
 </html>
