@@ -11,6 +11,8 @@ class HomeController extends Controller
      *
      * @return void
      */
+     public $mainPage = "home";
+    public $page = "Home";
     public function __construct()
     {
         $this->middleware('auth');
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+         $data['page'] = $this->page;
+        $data['subpage'] = "Update Profile";   
+        return view('home',$data);
     }
 }
