@@ -90,7 +90,7 @@ class userController extends Controller
      */
     public function edit($id)
     {
-        //
+        return ['data_user' => User::where('id',$id)->first(),'url' => route('user.update',$id)];
     }
 
     /**
@@ -102,7 +102,38 @@ class userController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        
+        if($request->password == "" AND $request->conf_password == "")
+        {
+            // return "Tidak Ada";
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email|unique:users,id,'.$id,
+                'kd_satker' => 'required'
+            ]); 
+            $data =  $request->except('_method','_token','conf_password','password');  
+        }
+        else
+        {
+            // return "Ada";
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email|unique:users,id,'.$id,
+                'password' => 'required|min:6',
+                'conf_password' => 'required|same:password',
+                'kd_satker' => 'required'
+            ]);
+            $data =  $request->except('_method','_token','conf_password');
+            $data['password'] = bcrypt($data['password']);
+        }
+        $data['level'] = 'operator';
+        $query = User::where('id',$id)->update($data);
+        //IS data success created
+        if($query)
+        {
+            return redirect($this->mainPage)->with(['status' => 'success' ,'message' => "Berhasil Update User"]);
+        }
     }
 
     /**

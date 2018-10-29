@@ -14,6 +14,8 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('public/css/style.css')}}" >
   <link rel="stylesheet" href="{{ asset('public/css/font-awesome.min.css')}}">
 
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -183,7 +185,7 @@
   </main>
   
 
-  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
