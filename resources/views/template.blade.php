@@ -41,7 +41,7 @@
       </ul>
     </div>
   </nav>
-  <section>
+  <section class="utama">
     <div class="navLeft">
       <div class="sidenav">
         @if(Auth::user()->level == "admin")

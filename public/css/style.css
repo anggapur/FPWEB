@@ -1,19 +1,19 @@
 .body-style{
-	background: #04bcd4;
-	padding-top: 25vh;
+  background: #04bcd4;
+  padding-top: 25vh;
 }
 .form-container{
-	background: #fff;
-	border-radius: 10px;
-	padding: 30px;
-	box-shadow: 0px 0px 10px 0px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 0px 10px 0px;
 }
 .bg{
-	width: 70px;
-	height: 70px;
-	position: absolute;
-	top: -35px;
-	left: 40%;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: -35px;
+  left: 40%;
 }
 
 
@@ -174,7 +174,7 @@ div#tableNice1_wrapper {
     padding: 20px 10px 10px 10px;
 }
 .bottom-space{
-	height: 50px
+  height: 50px
 }
 
 /* Fixed sidenav, full height */
@@ -273,15 +273,16 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
 
 .navLeft {
     float: left;
-    height: 100% !important;
-    position: absolute;
+    /* height: 100%; */
+    position: relative;
+    height: auto;
     width: 200px;
 }
 
 .mainRight {
     float: left;
-    position: absolute;
-    margin-left: 200px;
+    position: relative;
+    /* margin-left: 200px; */
     width: calc(100% - 200px);
 }
 
@@ -299,4 +300,12 @@ button.dropdown-btn {
 
 .dropdown-container a i {
     margin-right: 10px;
+}
+html,body {
+    height: 100%;
+}
+
+.utama
+{
+  display: flex;
 }
