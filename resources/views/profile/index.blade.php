@@ -2,12 +2,6 @@
 
 @section('content')
 <!-- Section -->
-  <section id="sections" class="py-4 mb-4 bg-faded">
-    <div class="container">
-      <div class="row">
-      </div>
-    </div>
-  </section>
   <section id="alert">
     <div class="container">
       <div class="row">

@@ -1,5 +1,5 @@
 .body-style{
-	background: #4df5cb;
+	background: #04bcd4;
 	padding-top: 25vh;
 }
 .form-container{
@@ -47,4 +47,128 @@ div#tableNice1_wrapper {
 }
 .bottom-space{
 	height: 50px
+}
+
+/* Fixed sidenav, full height */
+.sidenav {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #04bcd4;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    /* box-shadow: -4px 0px 5px 1px #928686; */
+    /* z-index: 99999; */
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+    color: #5deeff;
+    border-bottom: 1px solid #04dbf8;
+    /* border-top: 1px solid; */
+    /* background: white; */
+}
+
+/* Main content */
+.main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+    color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    background-color: #2aacbb;
+    padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    justify-content: space-between;
+    padding: 0;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    color: white !important;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.floatingLeft {
+    padding-left: 10px;
+    width: 200px;
+    background: #04bcd4;
+    box-shadow: -4px 0px 5px 1px #928686;
+    z-index: 99999;
+}
+
+.navLeft {
+    float: left;
+    height: 100% !important;
+    position: absolute;
+    width: 200px;
+}
+
+.mainRight {
+    float: left;
+    position: absolute;
+    margin-left: 200px;
+    width: calc(100% - 200px);
+}
+
+section#posts {
+    padding-top: 20px;
+}
+
+button.dropdown-btn {
+    outline: none;
+}
+
+.dropdown-container a {
+    font-size: 15px;
+}
+
+.dropdown-container a i {
+    margin-right: 10px;
 }
