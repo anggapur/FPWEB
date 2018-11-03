@@ -14,6 +14,10 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('public/css/style.css')}}" >
   <link rel="stylesheet" href="{{ asset('public/css/font-awesome.min.css')}}">
 
+
+  <!-- DROPDOWN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </head>
@@ -41,7 +45,7 @@
         </li>
         <!-- Amprahan -->
          <li class="nav-item px-2">
-          <a class="nav-link" href="users.html">Amprahan</a>
+          <a class="nav-link" href="{{url('amprahan')}}">Amprahan</a>
         </li>
         <!-- Laporan -->
         <li class="nav-item dropdown">
@@ -90,14 +94,14 @@
           </div>
         </li>
          <li class="nav-item px-2">
-          <a class="nav-link" href="users.html">Amprahan</a>
+          <a class="nav-link" href="{{url('amprahan')}}">Amprahan</a>
         </li>
         <li class="nav-item dropdown">
            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Absensi</a>
            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="profile.html"><i class="fa fa-user-circle"></i>Absensi Induk</a>
-            <a class="dropdown-item" href="profile.html"><i class="fa fa-user-circle"></i>Absensi Susulan</a>
-            <a class="dropdown-item" href="profile.html"><i class="fa fa-user-circle"></i>Absensi Kekurangan</a>
+            <a class="dropdown-item" href="{{url('absensiInduk')}}"><i class="fa fa-user-circle"></i>Absensi Induk</a>
+            <a class="dropdown-item" href="{{url('absensiSusulan')}}"><i class="fa fa-user-circle"></i>Absensi Susulan</a>
+            <a class="dropdown-item" href="{{url('absensiKekurangan')}}"><i class="fa fa-user-circle"></i>Absensi Kekurangan</a>
           </div>
         </li>
         <!-- Laporan -->
@@ -190,6 +194,13 @@
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <!-- DROP DOWN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
  <!--  <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
   <script>
     CKEDITOR.replace('editor1');

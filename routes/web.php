@@ -27,10 +27,27 @@ Route::group(['middleware' => 'auth'],function(){
 	//middleware for login
 	Route::resource('profile','profilController');
 	Route::resource('personil','personilController');
-
+	//Admin
 	Route::group(['middleware' => 'level:admin'],function(){
 		Route::resource('satker','satkerController');
 		Route::resource('user','userController');
 	});
+	//Operator
+	Route::group(['middleware' => 'level:operator'],function(){
+		Route::resource('amprahan','amprahanController');
+
+		Route::resource('absensiInduk','absensiIndukController');
+
+		Route::resource('absensiSusulan','absensiSusulanController');
+		Route::post('absensiSusulan/cekBulanTahun','absensiSusulanController@cekBulanTahun')->name('cekBulanTahun');
+		Route::resource('absensiKekurangan','absensiKekuranganController');
+
+		Route::post('pilihBulanTahunPegawaiAmprahan','amprahanController@pilihBulanTahunPegawai')->name('pilihBulanTahunPegawaiAmprahan');
+	});
+
+	//Route APi	
+	Route::post('pilihBulanTahunPegawai','absensiIndukController@pilihBulanTahunPegawai')->name('pilihBulanTahunPegawai');
+	Route::post('pilihBulanTahunPegawaiKekurangan','absensiKekuranganController@pilihBulanTahunPegawai')->name('pilihBulanTahunPegawaiKekurangan');	
+
 });
 
