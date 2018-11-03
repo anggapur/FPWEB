@@ -56,7 +56,7 @@
             <a href="settings.html"><i class="fa fa-gear"></i>Data Kebijakan Absensi</a>
             <a href="settings.html"><i class="fa fa-gear"></i>Data Aturan Tunkin</a>
           </div>
-          <a href="{{url('amprahan')}}">Amprahan</a>
+          <!-- <a href="{{url('amprahan')}}">Amprahan</a> -->
 
           <button class="dropdown-btn">LA Induk 
             <i class="fa fa-caret-down"></i>
@@ -108,9 +108,9 @@
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-container">
-            <a href="profile.html"><i class="fa fa-user-circle"></i>Absensi Induk</a>
-            <a href="profile.html"><i class="fa fa-user-circle"></i>Absensi Susulan</a>
-            <a href="profile.html"><i class="fa fa-user-circle"></i>Absensi Kekurangan</a>
+            <a href="{{url('absensiInduk')}}"><i class="fa fa-user-circle"></i>Absensi Induk</a>
+            <a href="{{url('absensiSusulan')}}"><i class="fa fa-user-circle"></i>Absensi Susulan</a>
+            <a href="{{url('absensiKekurangan')}}"><i class="fa fa-user-circle"></i>Absensi Kekurangan</a>
           </div>
 
           <button class="dropdown-btn">LA Induk

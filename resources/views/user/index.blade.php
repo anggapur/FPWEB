@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Section -->
-  <section id="sections" class="py-4 mb-4 bg-faded">
+  <section id="sections" class="bg-faded">
     <div class="container">
       <div class="row">
         <div class="col-md-3">
@@ -47,74 +47,53 @@
   <section id="posts">
     <div class="container">
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12" >
           <div class="card">
             <div class="card-header">
            {{$page}}  / {{$subpage}}
             </div>
-            <table  id="tableNice1" class="table table-striped table-bordered">
-              <thead class="thead-inverse">
-                <tr>
-                  <th>No</th>
-                  <th>Username</th>
-                  <th>Email</th>
-                  <th>Satker</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($dataUser as $val)
-                <tr>
-                  <td>{{$loop->iteration}}</td>
-                  <td>{{$val->name}}</td>
-                  <td>{{$val->email}}</td>
-                  <td>{{$val->kd_satker." - ".$val->nm_satker}}</td>
-
-                  <td>
-                    <!-- Edit button -->
-                    <a href="#" class="btn btn-sm btn-warning btn-edit" data-toggle="modal" data-target="#addUserModel" data-link="{{route('user.edit',$val->id)}}">
-                      <i class="fa fa-pencil" ></i> Edit</a>
-                    <!-- Details -->
-                    <a href="{{url('user/'.$val->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-file-o"></i> Details</a>
-
-                  <td><a href="details.html" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> Edit</a>
-                    <a href="{{url('user/'.$val->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-file-o"></i> Details</a>
-
-                     <form action="{{url('user/'.$val->id)}}" method="POST">
-                          {{csrf_field()}}
-                          <input type="hidden" name="_method" value="DELETE">
-                          <button type="submit" class=" btn btn-xs btn-danger"><i class="fa fa-trash"></i> Hapus</button>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card bg-primary mb-3 text-center text-white">
             <div class="card-body">
-              <h3>Posts</h3>
-              <h1 class="display-4"><i class="fa fa-pencil"></i>6</h1>
-              <a href="{{ asset('template/posts')}}" class="btn btn-sm btn-outline-light">View</a>
-            </div>
-          </div>
-          <div class="card bg-success mb-3 text-center text-white">
-            <div class="card-body">
-              <h3>Categories</h3>
-              <h1 class="display-4"><i class="fa fa-pencil"></i>4</h1>
-              <a href="{{ asset('template/categories')}}" class="btn btn-sm btn-outline-light">View</a>
-            </div>
-          </div>
-          <div class="card bg-warning mb-3 text-center text-white">
-            <div class="card-body">
-              <h3>Users</h3>
-              <h1 class="display-4"><i class="fa fa-pencil"></i>2</h1>
-              <a href="{{ asset('template/users')}}" class="btn btn-sm btn-outline-light">View</a>
+              <table  class="display table table-bordered table-striped" cellspacing="0" width="100%">
+                <thead class="thead-inverse">
+                  <tr>
+                    <th>No</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Satker</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($dataUser as $val)
+                  <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$val->name}}</td>
+                    <td>{{$val->email}}</td>
+                    <td>{{$val->kd_satker." - ".$val->nm_satker}}</td>
+
+                    <td>
+                      <!-- Edit button -->
+                      <a href="#" class="btn btn-xs btn-warning btn-edit" data-toggle="modal" data-target="#addUserModel" data-link="{{route('user.edit',$val->id)}}">
+                        <i class="fa fa-pencil" ></i> Edit</a>
+                      <!-- Details -->
+                      <a href="{{url('user/'.$val->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-file-o"></i> Details</a>
+
+                   
+
+                       <form action="{{url('user/'.$val->id)}}" method="POST">
+                            {{csrf_field()}}
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class=" btn btn-xs btn-danger"><i class="fa fa-trash"></i> Hapus</button>
+                          </form>
+                      </td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
+       
       </div>
     </div>
   </section>
@@ -243,6 +222,7 @@
   
   <script type="text/javascript">
     $(document).ready(function(){
+      $('table').DataTable();
       //klik edit button untuk edit data
       $('.btn-edit').click(function(){
         link = $(this).attr('data-link');
