@@ -1,8 +1,6 @@
 @extends('template')
 
 @section('content')
-
-  
 <!-- Section -->
   <section id="sections" class="py-4 mb-4 bg-faded">
     <div class="container">
@@ -71,16 +69,21 @@
                   <td>{{$val->name}}</td>
                   <td>{{$val->email}}</td>
                   <td>{{$val->kd_satker." - ".$val->nm_satker}}</td>
+
                   <td>
                     <!-- Edit button -->
                     <a href="#" class="btn btn-sm btn-warning btn-edit" data-toggle="modal" data-target="#addUserModel" data-link="{{route('user.edit',$val->id)}}">
                       <i class="fa fa-pencil" ></i> Edit</a>
                     <!-- Details -->
                     <a href="{{url('user/'.$val->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-file-o"></i> Details</a>
+
+                  <td><a href="details.html" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> Edit</a>
+                    <a href="{{url('user/'.$val->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-file-o"></i> Details</a>
+
                      <form action="{{url('user/'.$val->id)}}" method="POST">
                           {{csrf_field()}}
                           <input type="hidden" name="_method" value="DELETE">
-                          <button type="submit" class=" btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</button>
+                          <button type="submit" class=" btn btn-xs btn-danger"><i class="fa fa-trash"></i> Hapus</button>
                         </form>
                     </td>
                 </tr>
@@ -94,21 +97,21 @@
             <div class="card-body">
               <h3>Posts</h3>
               <h1 class="display-4"><i class="fa fa-pencil"></i>6</h1>
-              <a href="posts.html" class="btn btn-sm btn-outline-light">View</a>
+              <a href="{{ asset('template/posts')}}" class="btn btn-sm btn-outline-light">View</a>
             </div>
           </div>
           <div class="card bg-success mb-3 text-center text-white">
             <div class="card-body">
               <h3>Categories</h3>
               <h1 class="display-4"><i class="fa fa-pencil"></i>4</h1>
-              <a href="categories.html" class="btn btn-sm btn-outline-light">View</a>
+              <a href="{{ asset('template/categories')}}" class="btn btn-sm btn-outline-light">View</a>
             </div>
           </div>
           <div class="card bg-warning mb-3 text-center text-white">
             <div class="card-body">
               <h3>Users</h3>
               <h1 class="display-4"><i class="fa fa-pencil"></i>2</h1>
-              <a href="users.html" class="btn btn-sm btn-outline-light">View</a>
+              <a href="{{ asset('template/users')}}" class="btn btn-sm btn-outline-light">View</a>
             </div>
           </div>
         </div>
@@ -168,8 +171,10 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header modal-title bg-success text-white">
+
           <h5 class="modal-title">Edit User</h5>
           <button class="close"><span>&times;</span></button>
+
         </div>
         <div class="modal-body">
           <form>
@@ -180,7 +185,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-scondary" data-dismiss="modal">Close</button>
+          <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
           <button class="btn btn-success" data-dismiss="modal">Add Category</button>
         </div>
       </div>
@@ -190,6 +195,7 @@
   <!-- Header Users -->
   <div class="modal fade" id="addUserModel">
     <div class="modal-dialog modal-lg">
+
       <form action="" method="post" class="editForm">
         <div class="modal-content">
           <div class="modal-header modal-title bg-warning text-white">
@@ -229,6 +235,7 @@
             <button type="submit" class="btn btn-warning" >Update User <i class="fa fa-arrow-circle-right"></i></button>
             <button class="btn btn-scondary" data-dismiss="modal">Close</button>
           </div>
+
         </div>
       </form>
     </div>

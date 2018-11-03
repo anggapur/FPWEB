@@ -23,6 +23,9 @@ Route::get('template/index','templateCtrl@index');
 Route::get('template/login','templateCtrl@login');
 
 
+Route::get('template/posts', function () {
+    return view('posts');
+});
 Route::group(['middleware' => 'auth'],function(){
 	//middleware for login
 	Route::resource('profile','profilController');
@@ -50,4 +53,3 @@ Route::group(['middleware' => 'auth'],function(){
 	Route::post('pilihBulanTahunPegawaiKekurangan','absensiKekuranganController@pilihBulanTahunPegawai')->name('pilihBulanTahunPegawaiKekurangan');	
 
 });
-
