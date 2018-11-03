@@ -55,7 +55,7 @@
             <a href="settings.html"><i class="fa fa-gear"></i>Data Kebijakan Absensi</a>
             <a href="settings.html"><i class="fa fa-gear"></i>Data Aturan Tunkin</a>
           </div>
-          <a href="users.html">Amprahan</a>
+          <a href="{{url('amprahan')}}">Amprahan</a>
 
           <button class="dropdown-btn">LA Induk 
             <i class="fa fa-caret-down"></i>
@@ -101,7 +101,7 @@
             <a href="settings.html"><i class="fa fa-gear"></i>Data Personil</a>
             <a href="settings.html"><i class="fa fa-gear"></i>Edit Data Satker</a>
           </div>
-          <a href="users.html">Amprahan</a>
+          <a href="{{url('amprahan')}}">Amprahan</a>
 
           <button class="dropdown-btn">Absensi
             <i class="fa fa-caret-down"></i>

@@ -208,6 +208,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'CH' => App\Helpers\customHelper::class,
+        'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 
