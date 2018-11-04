@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -24,7 +24,10 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        if(Auth::user()->level == "anggota")
+            return redirect("anggota");
+
          $data['page'] = $this->page;
         $data['subpage'] = "Update Profile";   
         return view('home',$data);

@@ -14,7 +14,8 @@ class LevelCheck
      * @return mixed
      */
     public function handle($request, Closure $next,$role)
-    {
+    {   
+        
         if(Auth::User()->level !== $role)
             return redirect('error');
         return $next($request);

@@ -1,4 +1,4 @@
-@extends('template')
+@extends((Auth::user()->level == "anggota") ? 'templateAnggota' : 'template')
 
 @section('content')
 <!-- Section -->

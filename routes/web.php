@@ -51,9 +51,15 @@ Route::group(['middleware' => 'auth'],function(){
 
 		Route::post('pilihBulanTahunPegawaiAmprahan','amprahanController@pilihBulanTahunPegawai')->name('pilihBulanTahunPegawaiAmprahan');
 	});
-
 	//Route APi	
 	Route::post('pilihBulanTahunPegawai','absensiIndukController@pilihBulanTahunPegawai')->name('pilihBulanTahunPegawai');
 	Route::post('pilihBulanTahunPegawaiKekurangan','absensiKekuranganController@pilihBulanTahunPegawai')->name('pilihBulanTahunPegawaiKekurangan');	
 
 });
+	Route::get('hasing',function(){
+		return bcrypt("123123123");
+	});
+//anggota
+	Route::resource('anggota','anggotaController');
+	Route::get('login/anggota','anggotaController@loginForm');
+	Route::post('loginAnggota','anggotaController@loginProses');
