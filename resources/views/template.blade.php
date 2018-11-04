@@ -57,7 +57,8 @@
             <a href="settings.html"><i class="fa fa-gear"></i>Data Aturan Tunkin</a>
           </div>
           <!-- <a href="{{url('amprahan')}}">Amprahan</a> -->
-
+          <a href="{{url('aturanAbsensi')}}">Aturan Absensi</a>
+          <a href="{{url('aturanTunkin')}}">Aturan Tunkin</a>
           <button class="dropdown-btn">LA Induk 
             <i class="fa fa-caret-down"></i>
           </button>
@@ -162,13 +163,22 @@
     <div style="clear: both"></div>
   </section>
 
-  <footer class="bottom-space"></footer>
+  <!-- <footer class="bottom-space"></footer> -->
 
   
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <script>
+
+  <!-- Auto Currency -->
+  <script src="{{ asset('public/js/jquery.masknumber.js')}}"></script>
+  <!-- DROP DOWN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.js-example-basic-single').select2();
+  });
+
   /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
   var dropdown = document.getElementsByClassName("dropdown-btn");
   var i;
@@ -184,9 +194,7 @@
       }
     });
   }
-  </script>
-
-<script>
+  
   $(function () {
     $('#tableNice1').DataTable()
     $('#tableNice2').DataTable({

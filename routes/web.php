@@ -34,9 +34,13 @@ Route::group(['middleware' => 'auth'],function(){
 	Route::group(['middleware' => 'level:admin'],function(){
 		Route::resource('satker','satkerController');
 		Route::resource('user','userController');
+		Route::resource('aturanAbsensi','aturanAbsensiController');
+		Route::resource('aturanTunkin','aturanTunkinController');
+		Route::get('aturanTunkin/detail/{id}','aturanTunkinController@detail');
 	});
 	//Operator
 	Route::group(['middleware' => 'level:operator'],function(){
+		
 		Route::resource('amprahan','amprahanController');
 
 		Route::resource('absensiInduk','absensiIndukController');

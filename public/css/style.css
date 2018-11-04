@@ -149,27 +149,14 @@ nav i.fa {
 header#main-header i.fa.fa-gear {
     margin-right: 10px;
 }
-a.btn.btn-xs.btn-warning {
-    padding: 1px 5px;
+.btn-xs{
+    padding: 3px 5px;
     font-size: 12px;
     line-height: 1.5;
     border-radius: 3px;
-    width: 60px;
+  
 }
-a.btn.btn-xs.btn-primary {
-    padding: 1px 5px;
-    font-size: 12px;
-    line-height: 1.5;
-    border-radius: 3px;
-    width: 60px;
-}
-button.btn.btn-xs.btn-danger {
-    padding: 1px 5px;
-    font-size: 12px;
-    line-height: 1.5;
-    border-radius: 3px;
-    width: 60px;
-}
+
 div#tableNice1_wrapper {
     padding: 20px 10px 10px 10px;
 }
@@ -273,16 +260,15 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
 
 .navLeft {
     float: left;
-    /* height: 100%; */
-    position: relative;
-    height: auto;
+    height: 100% !important;
+    position: absolute;
     width: 200px;
 }
 
 .mainRight {
     float: left;
-    position: relative;
-    /* margin-left: 200px; */
+    position: absolute;
+    margin-left: 200px;
     width: calc(100% - 200px);
 }
 
@@ -300,12 +286,4 @@ button.dropdown-btn {
 
 .dropdown-container a i {
     margin-right: 10px;
-}
-html,body {
-    height: 100%;
-}
-
-.utama
-{
-  display: flex;
 }
