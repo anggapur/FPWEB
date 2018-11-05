@@ -167,13 +167,15 @@ div#tableNice1_wrapper {
 /* Fixed sidenav, full height */
 .sidenav {
     height: 100%;
-    width: 100%;
+    width: 200px;
     z-index: 1;
     top: 0;
     left: 0;
+    bottom: 0;
+    position: fixed;
     background-color: #04bcd4;
     overflow-x: hidden;
-    padding-top: 20px;
+    /* padding-top: 5px; */
 }
 
 /* Style the sidenav links and the dropdown button */
@@ -266,11 +268,10 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
 }
 
 .mainRight {
-    /* float: left; */
-    position: relative;
-    /* margin-left: 200px; */
+    float: left;
+    position: absolute;
+    margin-left: 200px;
     width: calc(100% - 200px);
-    top: 0;
 }
 
 section#posts {
@@ -288,15 +289,6 @@ button.dropdown-btn {
 .dropdown-container a i {
     margin-right: 10px;
 }
-section.utama {
-    height: 100%;
-    position: relative;
-}
-
-.navLeft {
-    float: left;
-}
-
-.mainRight {
-    float: right;
+h4 {
+    margin: 0;
 }
