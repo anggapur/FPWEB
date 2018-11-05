@@ -289,6 +289,9 @@ button.dropdown-btn {
 .dropdown-container a i {
     margin-right: 10px;
 }
-h4 {
+.floatingLeft h4 {
     margin: 0;
+}
+table .btn {
+    margin-top: 4px;
 }
