@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -55,6 +55,16 @@
             <!-- <a href="{{url('personil')}}"><i class="fa fa-gear"></i>Data Personil</a> -->
             <a href="settings.html"><i class="fa fa-gear"></i>Data Kebijakan Absensi</a>
             <a href="settings.html"><i class="fa fa-gear"></i>Data Aturan Tunkin</a>
+          </div>
+          <!-- Data Satker -->
+
+          <button class="dropdown-btn">Data Satker
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="{{url('dataSatker/create')}}"><i class="fa fa-user-circle"></i>Input Satker</a>
+            <a href="{{url('dataSatker')}}"><i class="fa fa-gear"></i>Lihat Satker</a>
+            <a href="{{url('dataSatker/importSatker')}}"><i class="fa fa-gear"></i>Import Data Satker</a>
           </div>
           <!-- Data Perconil -->
           <button class="dropdown-btn">Data Personil 
@@ -112,7 +122,7 @@
           </button>
           <div class="dropdown-container">
             <!-- <a href="settings.html"><i class="fa fa-gear"></i>Data Personil</a> -->
-            <a href="settings.html"><i class="fa fa-gear"></i>Edit Data Satker</a>
+            <a href="{{url('dataSatker/'.Auth::user()->kd_satker.'/edit')}}"><i class="fa fa-gear"></i>Edit Data Satker</a>
           </div>
           <a href="{{url('amprahan')}}">Amprahan</a>
 
@@ -171,9 +181,10 @@
       </nav>
       @yield('content')
     </div>
-    <div style="clear: both"></div>
+    <div style="clear: both; height: 50px;"></div>
   </section>
 
+  <div style="clear: both;"></div>
   <!-- <footer class="bottom-space"></footer> -->
 
   
