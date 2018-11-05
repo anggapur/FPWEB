@@ -46,6 +46,12 @@ Route::get('template/posts', function () {
     return view('posts');
 });
 Route::group(['middleware' => 'auth'],function(){
+	// Data Satker
+	Route::get('dataSatker/editOwnSatker','satkerController@editOwnSatker');
+	Route::post('dataSatker/importDataSatker','satkerController@importDataSatker');
+	Route::get('dataSatker/importSatker','satkerController@formImport');
+	Route::resource('dataSatker','satkerController');		
+	Route::get('getDataSatker','satkerController@anyData')->name('getDataSatker');
 	// Data Pegawai
 	Route::get('pegawaiSetting/rekapPegawai','pegawaiController@rekapPegawai');
 	Route::get('pegawaiSetting/importPegawai','pegawaiController@formImport');
