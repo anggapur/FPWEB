@@ -27,6 +27,17 @@ Route::get('template/posts', function () {
     return view('posts');
 });
 Route::group(['middleware' => 'auth'],function(){
+	// Data Pegawai
+	Route::get('pegawaiSetting/rekapPegawai','pegawaiController@rekapPegawai');
+	Route::get('pegawaiSetting/importPegawai','pegawaiController@formImport');
+	Route::post('pegawaiSetting/importDataPegawai','pegawaiController@importDataPegawai');
+	Route::resource('dataPegawai','pegawaiController');
+	Route::get('getDataPegawai','pegawaiController@anyData')->name('getDataPegawai');
+	//rekening
+	Route::get('settingRekening/importForm','settingRekening@importForm');
+	Route::post('settingRekening/importrekening','settingRekening@importrekening');
+	Route::resource('settingRekening','settingRekening');
+	Route::get('getDataRekening','settingRekening@anyData')->name('getDataRekening');
 	//middleware for login
 	Route::resource('profile','profilController');
 	Route::resource('personil','personilController');
@@ -51,6 +62,10 @@ Route::group(['middleware' => 'auth'],function(){
 
 		Route::post('pilihBulanTahunPegawaiAmprahan','amprahanController@pilihBulanTahunPegawai')->name('pilihBulanTahunPegawaiAmprahan');
 	});
+	//Anggota
+	Route::group(['middleware' => 'level:anggota'],function(){
+		Route::resource('anggota','anggotaController');
+	});
 	//Route APi	
 	Route::post('pilihBulanTahunPegawai','absensiIndukController@pilihBulanTahunPegawai')->name('pilihBulanTahunPegawai');
 	Route::post('pilihBulanTahunPegawaiKekurangan','absensiKekuranganController@pilihBulanTahunPegawai')->name('pilihBulanTahunPegawaiKekurangan');	
@@ -59,7 +74,6 @@ Route::group(['middleware' => 'auth'],function(){
 	Route::get('hasing',function(){
 		return bcrypt("123123123");
 	});
-//anggota
-	Route::resource('anggota','anggotaController');
-	Route::get('login/anggota','anggotaController@loginForm');
-	Route::post('loginAnggota','anggotaController@loginProses');
+
+	// Route::get('login/anggota','anggotaController@loginForm');
+	// Route::post('loginAnggota','anggotaController@loginProses');
