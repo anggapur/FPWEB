@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Main content -->
-    <section class="content">
+    <section class="content container">
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-lg-12 col-xs-6">
@@ -20,11 +20,11 @@
                   </ul>
               </div>
           @endif
-          <div class="box box-info">
-            <div class="box-header">              
-              <h3 class="box-title">Rekap Data Personil</h3>                            
+          <div class="card">
+            <div class="card-header">              
+              Rekap Data Personil                           
             </div>
-            <div class="box-body">
+            <div class="card-body">
                <table class="table table-bordered">
                   <thead>
                     <tr>

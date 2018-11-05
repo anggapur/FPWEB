@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Main content -->
-    <section class="content">
+    <section class="content container">
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-lg-12 col-xs-12">
@@ -15,12 +15,12 @@
                   </ul>
               </div>
           @endif
-          <div class="box box-info">
-            <div class="box-header">              
-              <h3 class="box-title">Form Edit Pegawai</h3>              
+          <div class="card">
+            <div class="card-header">              
+              Form Edit Pegawai            
               <!-- /. tools -->
             </div>
-            <div class="box-body">              
+            <div class="card-body">              
               <form action="{{ route('dataPegawai.update',$dataPegawai->id)}}" method="POST">
                  @method('PUT')
                 {{csrf_field()}}
@@ -119,7 +119,7 @@
                   </select>                 
                 </div>      
             </div>
-            <div class="box-footer clearfix">
+            <div class="card-footer clearfix">
               <button type="submit" class="pull-right btn btn-success" id="sendEmail">Update Pegawai
                 <i class="fa fa-arrow-circle-right"></i></button>
             </div>

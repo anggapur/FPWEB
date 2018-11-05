@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Main content -->
-    <section class="content">
+    <section class="content container">
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-lg-12 col-xs-12">
@@ -20,12 +20,12 @@
                   {!! session('message') !!}
               </div>
           @endif
-          <div class="box box-info">
-            <div class="box-header">              
-              <h3 class="box-title">Form Import Data Personil</h3>              
+          <div class="card">
+            <div class="card-header">              
+              Form Import Data Personil           
               <!-- /. tools -->
             </div>
-            <div class="box-body">
+            <div class="card-body">
               <div class="col-md-12">
                 <form class="form-horizontal" role="form" id="importForm" enctype="multipart/form-data" method="POST" action="{{url('pegawaiSetting/importDataPegawai')}}" >
                   {{csrf_field()}}
