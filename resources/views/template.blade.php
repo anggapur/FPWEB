@@ -125,6 +125,20 @@
             <!-- <a href="settings.html"><i class="fa fa-gear"></i>Data Personil</a> -->
             <a href="{{url('dataSatker/'.Auth::user()->kd_satker.'/edit')}}"><i class="fa fa-gear"></i>Edit Data Satker</a>
           </div>
+
+          <!-- Data Perconil -->
+          <button class="dropdown-btn">Data Personil 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="{{url('dataPegawai/create')}}"><i class="fa fa-user-circle"></i>Input Personil</a>
+            <a href="{{url('settingRekening')}}"><i class="fa fa-gear"></i>Lihat Personil</a>
+            <a href="{{url('pegawaiSetting/importPegawai')}}"><i class="fa fa-gear"></i>Import Data Personil</a>
+            <!-- <a href="{{url('pegawaiSetting/rekapPegawai')}}"><i class="fa fa-gear"></i>Rekap Data Personil</a> -->
+           
+          </div>
+
+          
           <a href="{{url('amprahan')}}">Amprahan</a>
 
           <button class="dropdown-btn">Absensi

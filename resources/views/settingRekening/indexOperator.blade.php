@@ -1,8 +1,9 @@
+
 @extends('template')
 
 @section('content')
     <!-- Main content -->
-    <section class="content">
+    <section class="content container">
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-lg-12 col-xs-12">
@@ -25,12 +26,12 @@
                   </ul>
               </div>
           @endif
-          <div class="box box-info">
-            <div class="box-header">              
-              <h3 class="box-title">Data Personil</h3>                            
+          <div class="card">
+            <div class="card-header">              
+              Data Personil                        
               <a href="{{url('exportDataPegawai')}}" class="btn btn-success btn-xs" style="float: right;">Download Data Pegawai</a>
             </div>
-            <div class="box-body">
+            <div class="card-body">
 
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
