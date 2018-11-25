@@ -285,11 +285,11 @@ class pegawaiController extends Controller
                 
             })
             ->addColumn('action', function ($user) {
-                return '<a href="dataPegawai/'.$user->id.'/edit" class="btn btn-warning btn-xs">Edit</a>
+                return '<a href="dataPegawai/'.$user->id.'/edit" class="btn btn-warning btn-xs" style="color:white;"><i class="fa fa-pencil"></i> Edit</a>
                         <form action="'.url('dataPegawai/'.$user->id).'" method="POST">
                           '.csrf_field().'
                           <input type="hidden" name="_method" value="DELETE">
-                          <button type="submit" class=" btn btn-danger btn-xs"> Hapus</button>
+                          <button type="submit" class=" btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</button>
                         </form>';
                 // return $user->nm_pangkat1." - ".$user->nm_pangkat2;
                 

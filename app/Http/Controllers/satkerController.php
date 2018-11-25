@@ -193,7 +193,8 @@ class satkerController extends Controller
                 
             })
             ->addColumn('action', function ($user) {
-                return '<a href="'.url('dataSatker/'.$user->id).'/edit" class="btn btn-xs btn-warning"> Edit</a>';
+                return '<a href="'.url('dataSatker/'.$user->id).'/edit" class="btn btn-xs btn-warning" style="color:white;"><i class="fa fa-edit"></i> Edit</a>
+                     <a href="'.url('dataSatker/'.$user->id).'/edit" class="btn btn-xs btn-danger" style="color:white;"><i class="fa fa-trash"></i> Delete</a>';
 
                 
             })

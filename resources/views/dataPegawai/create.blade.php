@@ -137,8 +137,12 @@
     <!-- /.content -->
     <script type="text/javascript">
       $(document).ready(function() {
-      $('.js-example-basic-single').select2();
+        
+        $('.js-example-basic-single').select2({
+        theme: 'bootstrap4',
     });
+
+      });
       $(document).ready(function(){
         $('.money').maskNumber({integer: true,thousands: '.'});
 

@@ -13,8 +13,11 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" type="text/css" href="{{ asset('public/css/style.css')}}" >
   <link rel="stylesheet" href="{{ asset('public/css/font-awesome.min.css')}}">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{{asset('public/css/select2-bootstrap4.css')}}">
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-</head>
+  </head> 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="floatingLeftTop">
@@ -54,8 +57,8 @@
             <a href="{{url('user')}}"><i class="fa fa-user-circle"></i>Data Bendahara Satker/Operator</a>
             <a href="{{url('satker')}}"><i class="fa fa-user-circle"></i>Data Satker</a>
             <!-- <a href="{{url('personil')}}"><i class="fa fa-gear"></i>Data Personil</a> -->
-            <a href="settings.html"><i class="fa fa-gear"></i>Data Kebijakan Absensi</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Data Aturan Tunkin</a>
+            <a href="{{url('aturanAbsensi')}}"><i class="fa fa-gear"></i>Data Kebijakan Absensi</a>
+            <a href="{{url('aturanTunkin')}}"><i class="fa fa-gear"></i>Data Aturan Tunkin</a>
           </div>
           <!-- Data Satker -->
 
@@ -79,17 +82,17 @@
            
           </div>
           <!-- <a href="{{url('amprahan')}}">Amprahan</a> -->
-          <a href="{{url('aturanAbsensi')}}">Aturan Absensi</a>
-          <a href="{{url('aturanTunkin')}}">Aturan Tunkin</a>
+          <!-- <a href="{{url('aturanAbsensi')}}">Aturan Absensi</a> -->
+          <!-- <a href="{{url('aturanTunkin')}}">Aturan Tunkin</a> -->
           <button class="dropdown-btn">LA Induk 
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-container">
-            <a href="profile.html"><i class="fa fa-user-circle"></i>Laporan C1/C2</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan B1/B2</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan SPP</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Kwitansi</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan SPTJM</a>
+            <a href="{{url('laporanAbsensi/laporan1')}}"><i class="fa fa-user-circle"></i>Laporan C1/C2</a>
+            <a href="{{url('laporanAbsensi/laporanB')}}"><i class="fa fa-gear"></i>Laporan B1/B2</a>
+            <a href="{{url('laporanAbsensi/laporanSPP')}}"><i class="fa fa-gear"></i>Laporan SPP</a>
+            <a href="{{url('laporanAbsensi/laporanKU')}}"><i class="fa fa-gear"></i>Kwitansi</a>
+            <a href="{{url('laporanAbsensi/laporanSPTJM')}}"><i class="fa fa-gear"></i>Laporan SPTJM</a>
           </div>
 
           <button class="dropdown-btn">LA Susulan 
@@ -154,11 +157,11 @@
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-container">
-            <a href="profile.html"><i class="fa fa-user-circle"></i>Laporan C1/C2</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan B1/B2</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan SPP</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Kwitansi</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan SPTJM</a>
+            <a href="{{url('laporanAbsensi/laporan1')}}"><i class="fa fa-user-circle"></i>Laporan C1/C2</a>
+            <a href="{{url('laporanAbsensi/laporanB')}}"><i class="fa fa-gear"></i>Laporan B1/B2</a>
+            <a href="{{url('laporanAbsensi/laporanSPP')}}"><i class="fa fa-gear"></i>Laporan SPP</a>
+            <a href="{{url('laporanAbsensi/laporanKU')}}"><i class="fa fa-gear"></i>Kwitansi</a>
+            <a href="{{url('laporanAbsensi/laporanSPTJM')}}"><i class="fa fa-gear"></i>Laporan SPTJM</a>
           </div>
 
           <button class="dropdown-btn">LA Susulan
@@ -212,9 +215,9 @@
   <!-- DROP DOWN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
   <script type="text/javascript">
-    $(document).ready(function() {
-      $('.js-example-basic-single').select2();
-    });
+    // $(document).ready(function() {
+    //   $('.js-example-basic-single').select2();
+    // });
 
   /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
   var dropdown = document.getElementsByClassName("dropdown-btn");
