@@ -802,9 +802,10 @@ class laporanAbsensi extends Controller
     }
 
 
+    
     public function pilihBulanTahun(Request $request)
     {
-        //cari data yang sesuai
+       //cari data yang sesuai
         $bulan = CH::listBulan();
         $where = ['bulan' => $request->bulan, 'tahun' => $request->tahun];
         $query = waktu_absensi::where($where)->get();
@@ -859,7 +860,7 @@ class laporanAbsensi extends Controller
                     ->orderBy('absensi.kd_satker_saat_absensi','ASC')
                     ->orderBy('absensi.kd_anak_satker_saat_absensi','ASC')
                     ->orderBy('absensi.kelas_jab_saat_absensi','DESC')
-                    ->select('absensi.*','pegawai.*','pangkat.*','jabatan.*','satker.*','anak_satker.*','aturan_tunkin_detail.*');   
+                    ->select('absensi.*','pegawai.*','pangkat.*','jabatan.*','satker.*','anak_satker.nm_anak_satker','aturan_tunkin_detail.*');   
             }
             //cek apakah ada request berdasarkan satker
             if($request->satker != "")
@@ -867,13 +868,36 @@ class laporanAbsensi extends Controller
             if($request->anakSatker != "all")
                 $q2->where('absensi.kd_anak_satker_saat_absensi',$request->anakSatker);
             //cek apakah di requect polri atau pns
-            $getData = CH::queryByJenisPegawai($q2,$request->jenis_pegawai);
-            $q2 = $getData['query'];
-            $keanggotaan = $getData['keanggotaan'];
+            if($request->jenis_pegawai == "0")
+            {
+                $q2->whereRaw('LENGTH(pegawai.nip) <= 8'); // polri
+                $q2->where('absensi.state_tipikor_saat_absensi','0');
+                $keanggotaan = "POLRI";
+            }
+            else if($request->jenis_pegawai == "1")
+            {
+                $q2->whereRaw('LENGTH(pegawai.nip) > 8'); // pns
+                $q2->where('absensi.state_tipikor_saat_absensi','0');
+                $keanggotaan = "PNS";
+            }
+            else if($request->jenis_pegawai == "2")
+            {
+                $q2->where('absensi.state_tipikor_saat_absensi','1');
+                $keanggotaan = "TIPIDKOR";
+            }
+            else if($request->jenis_pegawai == "all")
+            {
+                $keanggotaan = "ALL";
+            }
+            else
+            {
+                $q2->where('absensi.state_tipikor_saat_absensi','0');
+                $keanggotaan = "POLRI & PNS";
+            }
 
             $dataSend = [];            
             foreach ($q2->get() as $key => $value) {
-                $dataSend[$key] = $value;
+               $dataSend[$key] = $value;
                 $dataSend[$key]['absensiValue1'] = CH::absensiFormulaMath($formula[0]['rumus'],$value->tunjangan,$value->absensi1);
                 $dataSend[$key]['absensiValue2'] = CH::absensiFormulaMath($formula[1]['rumus'],$value->tunjangan,$value->absensi2);
                 $dataSend[$key]['absensiValue3'] = CH::absensiFormulaMath($formula[2]['rumus'],$value->tunjangan,$value->absensi3);
@@ -892,7 +916,7 @@ class laporanAbsensi extends Controller
             else
                 $selectedSatker['nm_satker'] = "";
             //
-            return ['idBulanTahun' => $query[0]['id'],'status' => 'success','dataAbsensi' => $dataSend,'formula' => $formula , 'bulan' => $bulan[$request->bulan] ,'tahun' => $request->tahun ,'keanggotaan' => $keanggotaan ,'satker' => $satker , 'amprahan' => $this->apiLihatAmprah($request->bulan,$request->tahun,$request->jenis_pegawai),'selectedSatker' => $selectedSatker];            
+            return ['idBulanTahun' => $query[0]['id'],'status' => 'success','dataAbsensi' => $dataSend,'formula' => $formula , 'bulan' => $bulan[$request->bulan] ,'tahun' => $request->tahun ,'keanggotaan' => $keanggotaan ,'satker' => $satker,'selectedSatker' => $selectedSatker];            
         }
         else
         {

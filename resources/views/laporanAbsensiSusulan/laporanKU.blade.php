@@ -1,9 +1,9 @@
-@extends('layouts.template')
+@extends('template')
 
 @section('content')
     <!-- Main content -->
-    <section class="content">
-      <!-- Small boxes (Stat box) -->
+    <section class="content container-fluid">
+      <!-- Small cardes (Stat card) -->
       <div class="row">
         <div class="col-lg-12 col-xs-12">         
               <div class="alert alert-success" style="display: none;" id="message">
@@ -18,13 +18,13 @@
                   </ul>
               </div>
           @endif
-          <div class="box box-info noprint">
-            <!-- <form method="POST" action="{{route('absensi.store')}}">   -->
+          <div class="card card-info noprint">
+         
               {{csrf_field()}}
-            <div class="box-header">              
-              <h3 class="box-title">Form Kwitansi Polri/PNS</h3>                            
+            <div class="card-header">              
+              <h3 class="card-title">Form Kwitansi Polri/PNS</h3>                            
             </div>
-            <div class="box-body">    
+            <div class="card-body">    
               <form class="form-inline" id="formBulanTahun">
                 <div class="form-group">
                   <label>Bulan</label>
@@ -63,8 +63,8 @@
               </div>
             </div>
 
-            <div class="box" style="border-top: 0px">
-              <div class="box-body">
+            <div class="card" style="border-top: 0px">
+              <div class="card-body">
               <div class="lembarLaporanKU">
                 <div class="headerKU">
                   <div class="leftKU">
@@ -182,7 +182,7 @@
               </div>
             </div>   
           </div>
-          <!-- end box info -->
+          <!-- end card info -->
         </div>        
       </div>
       <!-- /.row -->

@@ -16,7 +16,13 @@
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="{{asset('public/css/select2-bootstrap4.css')}}">
+
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="{{ asset('public/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <!-- CKEDITOR -->
+<script src="//cdn.ckeditor.com/4.10.0/full/ckeditor.js"></script>
   </head> 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -99,25 +105,25 @@
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-container">
-            <a href="profile.html"><i class="fa fa-user-circle"></i>Laporan C1/C2</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan B1/B2</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan SPP</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Kwitansi</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan SPTJM</a>
+            <a href="{{url('laporanAbsensiSusulan/laporan1')}}"><i class="fa fa-user-circle"></i>Laporan C1/C2</a>
+            <a href="{{url('laporanAbsensiSusulan/laporanB')}}"><i class="fa fa-gear"></i>Laporan B1/B2</a>
+            <a href="{{url('laporanAbsensiSusulan/laporanSPP')}}"><i class="fa fa-gear"></i>Laporan SPP</a>
+            <a href="{{url('laporanAbsensiSusulan/laporanKU')}}"><i class="fa fa-gear"></i>Kwitansi</a>
+            <a href="{{url('laporanAbsensiSusulan/laporanSPTJM')}}"><i class="fa fa-gear"></i>Laporan SPTJM</a>
           </div>
 
           <button class="dropdown-btn">LA Kekurangan
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-container">
-            <a href="profile.html"><i class="fa fa-user-circle"></i>Laporan C1/C2</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan B1/B2</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan SPP</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Kwitansi</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan SPTJM</a>
+            <a href="{{url('laporanAbsensiKekurangan/laporan1')}}"><i class="fa fa-user-circle"></i>Laporan C1/C2</a>
+            <a href="{{url('laporanAbsensiKekurangan/laporanB')}}"><i class="fa fa-gear"></i>Laporan B1/B2</a>
+            <a href="{{url('laporanAbsensiKekurangan/laporanSPP')}}"><i class="fa fa-gear"></i>Laporan SPP</a>
+            <a href="{{url('laporanAbsensiKekurangan/laporanKU')}}"><i class="fa fa-gear"></i>Kwitansi</a>
+            <a href="{{url('laporanAbsensiKekurangan/laporanSPTJM')}}"><i class="fa fa-gear"></i>Laporan SPTJM</a>
           </div>
 
-          <a href="users.html">Mutasi</a>
+          <a href="{{url('mutasiSetting/mutasiViewAdmin')}}">Mutasi</a>
           <a href="fs.html">Backup Restore</a>
           @elseif(Auth::user()->level == "operator")
 
@@ -144,6 +150,18 @@
           
           <a href="{{url('amprahan')}}">Amprahan</a>
 
+
+          <button class="dropdown-btn">Isi Laporan
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="{{url('tandaTanganSetting/laporan1')}}"><i class="fa fa-circle-o"></i> Laporan C1/C2</a>
+            <a href="{{url('tandaTanganSetting/laporanB')}}"><i class="fa fa-circle-o"></i> Laporan B1/B2</a>
+            <a href="{{url('tandaTanganSetting/laporanSPP')}}"><i class="fa fa-circle-o"></i> Laporan SPP</a>
+            <a href="{{url('tandaTanganSetting/laporanKU')}}"><i class="fa fa-circle-o"></i> Laporan KU</a>
+            <a href="{{url('tandaTanganSetting/laporanSPTJM')}}"><i class="fa fa-circle-o"></i> Laporan SPTJM</a>
+          </div>
+
           <button class="dropdown-btn">Absensi
             <i class="fa fa-caret-down"></i>
           </button>
@@ -164,28 +182,36 @@
             <a href="{{url('laporanAbsensi/laporanSPTJM')}}"><i class="fa fa-gear"></i>Laporan SPTJM</a>
           </div>
 
-          <button class="dropdown-btn">LA Susulan
+           <button class="dropdown-btn">LA Susulan 
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-container">
-           <a href="profile.html"><i class="fa fa-user-circle"></i>Laporan C1/C2</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan B1/B2</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan SPP</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Kwitansi</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan SPTJM</a>
+            <a href="{{url('laporanAbsensiSusulan/laporan1')}}"><i class="fa fa-user-circle"></i>Laporan C1/C2</a>
+            <a href="{{url('laporanAbsensiSusulan/laporanB')}}"><i class="fa fa-gear"></i>Laporan B1/B2</a>
+            <a href="{{url('laporanAbsensiSusulan/laporanSPP')}}"><i class="fa fa-gear"></i>Laporan SPP</a>
+            <a href="{{url('laporanAbsensiSusulan/laporanKU')}}"><i class="fa fa-gear"></i>Kwitansi</a>
+            <a href="{{url('laporanAbsensiSusulan/laporanSPTJM')}}"><i class="fa fa-gear"></i>Laporan SPTJM</a>
           </div>
 
           <button class="dropdown-btn">LA Kekurangan
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-container">
-           <a href="profile.html"><i class="fa fa-user-circle"></i>Laporan C1/C2</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan B1/B2</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan SPP</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Kwitansi</a>
-            <a href="settings.html"><i class="fa fa-gear"></i>Laporan SPTJM</a>
+            <a href="{{url('laporanAbsensiKekurangan/laporan1')}}"><i class="fa fa-user-circle"></i>Laporan C1/C2</a>
+            <a href="{{url('laporanAbsensiKekurangan/laporanB')}}"><i class="fa fa-gear"></i>Laporan B1/B2</a>
+            <a href="{{url('laporanAbsensiKekurangan/laporanSPP')}}"><i class="fa fa-gear"></i>Laporan SPP</a>
+            <a href="{{url('laporanAbsensiKekurangan/laporanKU')}}"><i class="fa fa-gear"></i>Kwitansi</a>
+            <a href="{{url('laporanAbsensiKekurangan/laporanSPTJM')}}"><i class="fa fa-gear"></i>Laporan SPTJM</a>
           </div>
-          <a href="users.html">Mutasi</a>
+          <button class="dropdown-btn">Mutasi
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="{{url('mutasiSetting/kirimMutasi')}}"><i class="fa fa-user-circle"></i>Kirim Mutasi</a>
+            <a href="{{url('mutasiSetting')}}"><i class="fa fa-gear"></i>Mutasi Keluar</a>
+            <a href="{{url('mutasiSetting/terimaMutasi')}}"><i class="fa fa-gear"></i>Terima Mutasi</a>
+          
+          </div>
       @endif
       </div>
     </div>
@@ -215,9 +241,9 @@
   <!-- DROP DOWN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
   <script type="text/javascript">
-    // $(document).ready(function() {
-    //   $('.js-example-basic-single').select2();
-    // });
+    $(document).ready(function() {
+      $('.js-example-basic-single').select2();
+    });
 
   /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
   var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -247,5 +273,13 @@
     })
   })
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.4/xlsx.core.min.js"></script>
+        <script src="{{asset('public/js/FileSaver.js')}}"></script>
+        <script src="{{asset('public/js/jhxlsx.js')}}"></script>
+
+        <!-- Bootstrap WYSIHTML5 -->
+<script src="{{ asset('public/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+
 </body>
 </html>

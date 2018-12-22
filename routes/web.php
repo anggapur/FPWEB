@@ -73,6 +73,7 @@ Route::group(['middleware' => 'auth'],function(){
 		Route::resource('aturanAbsensi','aturanAbsensiController');
 		Route::resource('aturanTunkin','aturanTunkinController');
 		Route::get('aturanTunkin/detail/{id}','aturanTunkinController@detail');
+		Route::get('mutasiSetting/mutasiViewAdmin','mutasiController@mutasiViewAdmin');
 	});
 	//Operator
 	Route::group(['middleware' => 'level:operator'],function(){
@@ -86,6 +87,11 @@ Route::group(['middleware' => 'auth'],function(){
 		Route::resource('absensiKekurangan','absensiKekuranganController');
 
 		Route::post('pilihBulanTahunPegawaiAmprahan','amprahanController@pilihBulanTahunPegawai')->name('pilihBulanTahunPegawaiAmprahan');
+		//Mutasi
+		Route::get('mutasiSetting/kirimMutasi','mutasiController@kirimMutasi');
+		Route::get('mutasiSetting/terimaMutasi','mutasiController@terimaMutasi');
+		Route::post('mutasiSetting/terima','mutasiController@terima');
+		Route::resource('mutasiSetting','mutasiController');
 	});
 	//Anggota
 	Route::group(['middleware' => 'level:anggota'],function(){
@@ -148,5 +154,12 @@ Route::group(['middleware' => 'auth'],function(){
 		return bcrypt("123123123");
 	});
 
+	Route::get('tandaTanganSetting/laporan1','TTDController@laporan1');
+	Route::get('tandaTanganSetting/laporanB','TTDController@laporanB');
+	Route::get('tandaTanganSetting/laporanSPP','TTDController@laporanSPP');
+	Route::get('tandaTanganSetting/laporanSPTJM','TTDController@laporanSPTJM');
+	Route::get('tandaTanganSetting/laporanKU','TTDController@laporanKU');
+	Route::post('tandaTanganSetting/saveData','TTDController@saveData');
+	Route::post('tandaTanganSetting/deleteImageTTD','TTDController@deleteImageTTD')->name('deleteImageTTD');
 	// Route::get('login/anggota','anggotaController@loginForm');
 	// Route::post('loginAnggota','anggotaController@loginProses');
