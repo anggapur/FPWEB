@@ -124,7 +124,7 @@
           </div>
 
           <a href="{{url('mutasiSetting/mutasiViewAdmin')}}">Mutasi</a>
-          <a href="fs.html">Backup Restore</a>
+          <!-- <a href="fs.html">Backup Restore</a> -->
           @elseif(Auth::user()->level == "operator")
 
           <button class="dropdown-btn">Data Master

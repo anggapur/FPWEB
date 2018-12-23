@@ -1,9 +1,9 @@
-@extends('layouts.template')
+@extends('template')
 
 @section('content')
     <!-- Main content -->
-    <section class="content">
-      <!-- Small boxes (Stat box) -->
+    <section class="content container-fluid">
+      <!-- Small cardes (Stat card) -->
       <div class="row">
         <div class="col-lg-12 col-xs-6">
          @if (session('status'))
@@ -20,11 +20,11 @@
                   </ul>
               </div>
           @endif
-          <div class="box box-info">
-            <div class="box-header">              
-              <h3 class="box-title">Daftar Mutasi</h3>                            
+          <div class="card card-info">
+            <div class="card-header">              
+              <h3 class="card-title">Daftar Mutasi</h3>                            
             </div>
-            <div class="box-body">
+            <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -55,9 +55,9 @@
                       <td>
                         @if($val->ke_satker !== "out")
                           @if($val->status_terima == 0)
-                            <span class="label label-warning">Belum Diterima</span>
+                            <span class="badge badge-warning">Belum Diterima</span>
                           @elseif($val->status_terima == 1)
-                            <span class="label label-success">Sudah Diterima - 
+                            <span class="badge badge-success">Sudah Diterima - 
                             {{$bulan[$val->bulan_diterima]}} {{$val->tahun_diterima}}</span>
                           @endif
                         @else
@@ -71,7 +71,7 @@
                              
             </div>           
           </div>
-          <!-- end box info -->
+          <!-- end card info -->
         </div>        
       </div>
       <!-- /.row -->
